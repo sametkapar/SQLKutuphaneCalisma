@@ -40,8 +40,8 @@ CREATE TABLE Kiracilar
 	KiraciID int IDENTITY(3000,1),
 	KiraciIsim nvarchar(120) NOT NULL,
 	KiraciSoyisim nvarchar(120) NOT NULL,
-	KiralamaTarihi nvarchar(20) NOT NULL,
-	SonTeslimTarihi nvarchar(20) NOT NULL,
+	KiralamaTarihi date NOT NULL,
+	SonTeslimTarihi date NOT NULL,
 	Kitap int NOT NULL,
 	CONSTRAINT pk_Kiracýlar PRIMARY KEY(KiraciID),
 	CONSTRAINT fk_KiralananKitap FOREIGN KEY(Kitap) REFERENCES Kitaplar(KitapID)
@@ -52,7 +52,7 @@ CREATE TABLE Bagiscilar
 	BagisciID int IDENTITY(2000,1),
 	BagisciIsim nvarchar(120) NOT NULL,
 	BagisciSoyisim nvarchar(120) NOT NULL,
-	BagisTarihi nvarchar(20),
+	BagisTarihi date,
 	Kitap int NOT NUll,
 	CONSTRAINT pk_Bagiscilar PRIMARY KEY (BagisciID),
 	CONSTRAINT fk_BagislananKitap FOREIGN KEY(Kitap) REFERENCES Kitaplar(KitapID)
